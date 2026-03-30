@@ -1,12 +1,4 @@
-# x = 2
-
-# print(x)
-
-# x = 3
-
-# print(x)
-
-mas = [1, 2, 3, 4, 5]
+print("Hello, World!")
 
 print(len(mas))
 

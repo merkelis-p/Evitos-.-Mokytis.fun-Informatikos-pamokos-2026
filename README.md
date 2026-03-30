@@ -1,474 +1,339 @@
-# VS Code diegimo ir paruošimo gidas (macOS + Windows)
+# Evitos programavimo pamokos
 
-Šis dokumentas skirtas mokiniams, kurie jungiasi į nuotolines programavimo pamokas.  
-Atnaujinta: **2026-03-26**.
+Šioje repozitorijoje saugomi visi **Evitos Š.** programavimo pamokų failai, namų darbų užduotys ir mokomoji medžiaga.
+Kalba: **Python**. Atnaujinta: **2026-03-30**.
+
+---
 
 ## Turinys
-1. [Ko reikės](#ko-reikės)
-2. [Įžanga: VS Code, IDE ir terminalas](#įžanga-vs-code-ide-ir-terminalas)
-3. [0 žingsnis: diegiame DEV tools](#0-žingsnis-diegiame-dev-tools)
-4. [1 žingsnis: susikurkite GitHub paskyrą (rekomenduojama)](#1-žingsnis-susikurkite-github-paskyrą-rekomenduojama)
-5. [2 žingsnis: įsidiekite VS Code](#2-žingsnis-įsidiekite-vs-code)
-6. [3 žingsnis: įsidiekite Live Share ir prisijunkite](#3-žingsnis-įsidiekite-live-share-ir-prisijunkite)
-7. [4 žingsnis: programavimo kalbos paruošimas (pasirinkite vieną)](#4-žingsnis-programavimo-kalbos-paruošimas-pasirinkite-vieną)
-8. [Greitas pasiruošimo patikrinimas prieš pamoką](#greitas-pasiruošimo-patikrinimas-prieš-pamoką)
-9. [Dažniausios problemos ir sprendimai](#dažniausios-problemos-ir-sprendimai)
 
-## Ko reikės
-- Kompiuterio su **Windows 10/11** arba **macOS**.
-- Stabilaus interneto ryšio.
-- El. pašto adreso (GitHub paskyrai).
-- Administratoriaus teisių (ypač Windows atveju diegiant papildomus įrankius).
+1. [Sparčios nuorodos](#sparčios-nuorodos)
+2. [Repozitorijos struktūra](#repozitorijos-struktūra)
+3. [Pamokų apžvalga](#pamokų-apžvalga)
+4. [Teorija: duomenų tipai](#teorija-duomenų-tipai)
+5. [Teorija: operatoriai](#teorija-operatoriai)
+6. [Teorija: sąlyginė valdymo struktūra](#teorija-sąlyginė-valdymo-struktūra)
+7. [Namų darbai](#namų-darbai)
 
-Naudingos oficialios nuorodos:
-- VS Code atsisiuntimas: <https://code.visualstudio.com/Download>
-- VS Code Windows diegimas: <https://code.visualstudio.com/docs/setup/windows>
-- VS Code macOS diegimas: <https://code.visualstudio.com/docs/setup/mac>
+---
 
-### Kaip naudoti šį gidą
-1. Jei niekada neįdiegėte programavimo įrankių, pradėkite nuo **0 žingsnio**.
-2. Tada visi mokiniai eina per **1, 2 ir 3 žingsnius**.
-3. **4 žingsnyje rinkitės tik vieną kalbą**: Python **arba** C++.
+## Sparčios nuorodos
 
-
-## Įžanga: VS Code, IDE ir terminalas
-
-### Kas yra IDE?
-**IDE** (*Integrated Development Environment*) yra programavimo aplinka, kurioje vienoje vietoje turite:
-- kodo rašymą
-- klaidų tikrinimą
-- paleidimą ir derinimą (debug)
-- terminalą ir plėtinius
-
-### Kas yra VS Code?
-**VS Code (Visual Studio Code)** yra lengvas kodo redaktorius, kuris su plėtiniais praktiškai tampa IDE aplinka. Kitas IDE pavyzdys yra **Code::Blocks** (daugiausia C++), bet mes pasirinkome VS Code dėl:  
-- veikia ir `Windows`, ir `macOS`
-- palaiko `Python`, `C++` ir daug kitų kalbų
-- turi `Live Share` nuotoliniam bendradarbiavimui
-- yra labai populiarus ir plačiai naudojamas industrijoje
-
-### Kas yra terminalas?
-Terminalas yra tekstinė programa, per kurią duodate komandas kompiuteriui.  
-Pamokose jį naudosime:
-- paleisti Python/C++ programas
-- įdiegti reikalingus įrankius
-- valdyti projekto failus (`cd`, `ls`, `mkdir`)
-- naudoti Git komandas (vėliau, kai dirbsime su versijavimu)
-
-### Kur rasti terminalą?
-#### Windows
-- Atidarykite `Start` ir įveskite `Windows Terminal` (arba `PowerShell`).
-- VS Code viduje: meniu `Terminal` -> `New Terminal`.
-- Shortcut VS Code viduje: ``Ctrl + ` `` (atidaryti / paslėpti terminalą).
-
-#### macOS
-- Atidarykite `Spotlight` (`Cmd + Space`) ir įveskite `Terminal`.
-- VS Code viduje: meniu `Terminal` -> `New Terminal`.
-- Shortcut VS Code viduje: ``Ctrl + ` `` (atidaryti / paslėpti terminalą).
-
-### Windows terminalų žemėlapis
-Windows sistemoje šiame gide minimi keli terminalai. Jie nėra tas pats:
-
-| Terminalas | Kur jį naudoti šiame gide |
+| Kas | Kur |
 |---|---|
-| `PowerShell` (arba `Windows Terminal` su PowerShell profiliu) | Bendroms komandoms: `python`, `py`, `git`, `winget`, `code` |
-| `MSYS2 UCRT64` | Tik C++ su `MSYS2` keliu: `pacman`, `g++`, `gdb` diegimas ir naudojimas |
-| `x64 Native Tools Command Prompt for VS` | Tik jei pasirinktas C++ `MSVC` kelias (`cl` kompiliatorius) |
+| VS Code + Python konfigūravimo gidas | [docs/VS_CODE_SETUP_GUIDE.md](docs/VS_CODE_SETUP_GUIDE.md) |
+| Pirma pamoka (2026-03-19) | [20260319-pamoka/main.py](20260319-pamoka/main.py) |
+| Antra pamoka – klasės darbai (2026-03-26) | [20260326-pamoka/](20260326-pamoka/) |
+| Namų darbai po 20260326 pamokos | [nd1.py](20260326-pamoka/nd1.py) – [nd6.py](20260326-pamoka/nd6.py) |
 
-Greita taisyklė:
-1. Jei prie komandos parašyta `PowerShell`, vykdykite PowerShell lange.
-2. Jei parašyta `MSYS2 UCRT64`, vykdykite būtent MSYS2 lange.
-3. Jei parašyta `x64 Native Tools Command Prompt`, naudokite būtent tą Visual Studio terminalą.
+---
 
-Pastaba: VS Code integruotas terminalas Windows sistemoje dažniausiai atsidaro kaip `PowerShell`.
+## Repozitorijos struktūra
 
-### Saugios komandos pasibandymui
-Windows (PowerShell):
-```powershell
-whoami
-Get-Date
-pwd
-ls
-mkdir terminalo-testas
-cd terminalo-testas
-echo "Labas, terminale!"
+```
+.
+├── README.md                    # esi čia – pagrindinis informacinis dokumentas
+├── 20260319-pamoka/
+│   └── main.py                  # pirmos pamokos kodas
+├── 20260326-pamoka/
+│   ├── u1.py                    # klasės darbas: duomenų tipai, input
+│   ├── u2.py                    # klasės darbas: aritmetiniai operatoriai (skaičiuotuvas)
+│   ├── u3.py                    # klasės darbas: palyginimas (lyginis / nelyginis)
+│   ├── u4.py                    # klasės darbas: if / elif / else
+│   ├── nd1.py                   # namų darbas 1: slaptažodžio sistema
+│   ├── nd2.py                   # namų darbas 2: dalumo testas
+│   ├── nd3.py                   # namų darbas 3: sekundės -> val / min / sek
+│   ├── nd4.py                   # namų darbas 4: dviženklio skaičiaus analizė
+│   ├── nd5.py                   # namų darbas 5: trikampio tikrinimas
+│   └── nd6.py                   # namų darbas 6: keliamieji metai
+└── docs/
+    └── VS_CODE_SETUP_GUIDE.md   # VS Code ir Python diegimo gidas
 ```
 
-macOS (Terminal):
-```bash
-whoami
-date
-pwd
-ls
-mkdir terminalo-testas
-cd terminalo-testas
-echo "Labas, terminale!"
-```
+---
 
-Abiejose sistemose ekrano išvalymui:
-```bash
-clear
-```
+## Pamokų apžvalga
 
-### VS Code: svarbiausi shortcut'ai
-| Veiksmas | Windows/Linux | macOS |
+### Pamoka 1 — 2026-03-19
+
+Failas: [20260319-pamoka/main.py](20260319-pamoka/main.py)
+
+Pirmoje pamokoje susipažinome su Python aplinka ir pagrindiniais principais:
+- `print()` – teksto ir reikšmių spausdinimas
+- Kintamieji ir jų keitimas
+- Aritmetinės operacijos su kintamaisiais
+- Bazinės funkcijos (trumpas pavyzdys)
+
+---
+
+### Pamoka 2 — 2026-03-26
+
+Klasės darbų failai:
+
+| Failas | Aprašymas |
+|---|---|
+| [u1.py](20260326-pamoka/u1.py) | `int`, `float`, `str`, `bool` tipai; `input()`; `type()` |
+| [u2.py](20260326-pamoka/u2.py) | Aritmetiniai operatoriai: `+`, `-`, `*`, `/`, `%`, `**`, `//` |
+| [u3.py](20260326-pamoka/u3.py) | Palyginimo operatorius `==`; lyginis / nelyginis tikrinimas |
+| [u4.py](20260326-pamoka/u4.py) | `if`, `elif`, `else`; loginiai operatoriai `and`, `or` |
+
+---
+
+## Teorija: duomenų tipai
+
+Python turi keturis pagrindinius paprastus duomenų tipus, kuriuos naudojame šiuo metu:
+
+| Tipas | Pavadinimas | Pavyzdys |
 |---|---|---|
-| Command Palette | `Ctrl + Shift + P` | `Cmd + Shift + P` |
-| Atidaryti failą pagal pavadinimą | `Ctrl + P` | `Cmd + P` |
-| Extensions langas | `Ctrl + Shift + X` | `Cmd + Shift + X` |
-| Explorer langas | `Ctrl + Shift + E` | `Cmd + Shift + E` |
-| Naujas terminalas | ``Ctrl + Shift + ` `` | ``Ctrl + Shift + ` `` |
-| Rodyti / slėpti terminalą | ``Ctrl + ` `` | ``Ctrl + ` `` |
-| Išsaugoti failą | `Ctrl + S` | `Cmd + S` |
-| Komentuoti eilutę | `Ctrl + /` | `Cmd + /` |
-| Paleisti debug | `F5` | `F5` |
-| Paleisti be debug | `Ctrl + F5` | `Ctrl + F5` |
+| `int` | Sveikasis skaičius | `x = 5` |
+| `float` | Dešimtainis skaičius | `y = 3.14` |
+| `str` | Tekstas (eilutė) | `z = "labas"` |
+| `bool` | Loginė reikšmė | `b = True` |
 
-Oficialūs shortcut PDF:
-- Windows: <https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf>
-- macOS: <https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf>
-
-Pastaba: klavišas `` ` `` dažniausiai yra kairėje nuo skaičiaus `1` (šalia `Esc`). Ant macOS klaviatūros jis gali būti pažymėtas kaip `~` (tilde) arba `` ` `` (backtick) ir gali atsirasti prie Shift klavišo. Windows klaviatūrose jis dažniausiai yra vienas klavišas, o macOS gali būti du (tilde ir backtick). Pamokose naudosime tik backtick (`` ` ``) funkciją, kuri atidaro terminalą.
-
-
-## 0 žingsnis: diegiame DEV tools
-
-Jei kompiuteryje ankščiau nebuvo diegta jokių programavimo įrankių, rekomenduojama pradėti nuo jų įdiegimo.
-
-### macOS: minimalus paruošimas
-1. Visada rekomenduojama, bet nėra būtina: Atnaujinkite macOS (`System Settings` -> `General` -> `Software Update`).
-2. Įsidiekite Apple Command Line Tools:
-```bash
-xcode-select --install
-```
-3. Patikrinkite, ar įsidiegė:
-```bash
-xcode-select -p
-git --version
-```
-4. (Nebūtina, bet naudinga) įsidiekite Homebrew:
-- Homebrew: <https://brew.sh/>
-- Diegimo komanda:
-```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-5. Jei reikia naujesnio Git:
-```bash
-brew install git
-```
-
-### Windows: minimalus paruošimas nuo nulio
-1. Visada rekomenduojama, bet nėra būtina: Atnaujinkite Windows (`Settings` -> `Windows Update`).
-2. Atidarykite `Windows Terminal` ir pasirinkite `PowerShell` profilį (arba atsidarykite atskirai `PowerShell`).
-3. Patikrinkite `winget` (jei yra, diegti bus paprasčiau):
-```powershell
-winget --version
-```
-4. Jei reikia, įsidiekite Git:
-- Oficiali nuoroda: <https://git-scm.com/install/windows>
-- Arba per `winget`:
-```powershell
-winget install --id Git.Git -e --source winget
-```
-5. Jei mokysitės C++, iš karto įsidiekite `MSYS2` iš <https://www.msys2.org/>.
-6. Po MSYS2 diegimo `Start` meniu atsiras `MSYS2 UCRT64` terminalas:
-- jame veikia `pacman`
-- jame diegsime C++ įrankius (`g++`, `gdb`)
-- `PowerShell` lange `pacman` neveiks (tai normalu)
-7. Jei C++ pasirinksite `MSVC` kelią, `Start` meniu ieškokite `x64 Native Tools Command Prompt for VS`.
-
-Papildomos oficialios nuorodos startui:
-- Homebrew diegimas: <https://docs.brew.sh/Installation>
-- MSYS2 diegimas: <https://www.msys2.org/docs/installer/>
-
-
-## 1 žingsnis: susikurkite GitHub paskyrą (rekomenduojama)
-
-**Rekomendacija:** prieš diegiant Live Share susikurkite ir patvirtinkite GitHub paskyrą.  
-Taip prisijungimas pamokos metu bus greitesnis ir sklandesnis. Taip pat turėsite prieigą prie daugybės naudingų įrankių ateityje (kodo saugyklos, bendradarbiavimas, atviro kodo projektai).
-
-1. Atidarykite registraciją: <https://github.com/signup>
-2. Užregistruokite paskyrą ir patvirtinkite el. paštą.
-3. Jei reikia, vadovaukitės oficialiu gidu:  
-   <https://docs.github.com/en/get-started/start-your-journey/creating-an-account-on-github>
-
-## 2 žingsnis: įsidiekite VS Code
-
-### Windows
-1. Eikite į <https://code.visualstudio.com/Download> ir atsisiųskite **Windows User Installer (x64)**.
-2. Paleiskite diegimo failą.
-3. Diegimo metu rekomenduojama pažymėti:
-- Add to PATH
-- Add "Open with Code" (File ir Directory context menu)
-4. Užbaikite diegimą ir paleiskite VS Code.
-
-Pastaba: pagal oficialią dokumentaciją dažniausiai rekomenduojamas **User setup** variantas (paprastesni atnaujinimai).
-
-### macOS
-1. Eikite į <https://code.visualstudio.com/Download> ir atsisiųskite **Mac Universal**.
-2. Išarchyvuokite atsisiųstą failą.
-3. Perkelkite `Visual Studio Code.app` į `Applications` aplanką.
-4. Paleiskite VS Code iš `Applications`.
-5. Kad veiktų komanda `code` terminale:
-- Atidarykite Command Palette: `Cmd + Shift + P`
-- Įveskite: `Shell Command: Install 'code' command in PATH`
-
-## 3 žingsnis: įsidiekite Live Share ir prisijunkite
-
-Live Share leidžia bendradarbiauti realiu laiku pamokoje.
-
-Oficialios nuorodos:
-- Live Share plėtinys: <https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare>
-- Live Share diegimo dokumentacija: <https://learn.microsoft.com/en-us/visualstudio/liveshare/use/install-live-share-visual-studio-code>
-
-### Diegimas per VS Code
-1. VS Code atidarykite `Extensions` (`Ctrl+Shift+X` Windows, `Cmd+Shift+X` macOS).
-2. Paieškoje įveskite **Live Share**.
-3. Pasirinkite **Live Share (Microsoft)** ir spauskite **Install**.
-
-### Prisijungimas (su GitHub rekomenduojama)
-1. Atidarykite Command Palette (`Ctrl/Cmd + Shift + P`).
-2. Paleiskite komandą: `Live Share: Sign In`.
-3. Pasirinkite prisijungimą per **GitHub**.
-4. Naršyklėje patvirtinkite prisijungimą.
-
-### Sesijos paleidimas pamokai
-1. Command Palette: `Live Share: Start Collaboration Session`.
-2. Nukopijuokite sugeneruotą nuorodą.
-3. Nusiųskite ją mokytojui arba mokiniams.
-
-CLI alternatyva (jei naudojate `code` komandą):
-```bash
-code --install-extension MS-vsliveshare.vsliveshare
-```
-
-## 4 žingsnis: programavimo kalbos paruošimas (pasirinkite vieną)
-
-Šiame etape mokinys renkasi tik **vieną** kelią:
-- **A variantas:** Python
-- **B variantas:** C++
-
-### A variantas: Python paruošimas VS Code aplinkoje
-
-Oficialios nuorodos:
-- Python atsisiuntimas: <https://www.python.org/downloads/>
-- VS Code Python tutorial: <https://code.visualstudio.com/docs/python/python-tutorial>
-- Python plėtinys: <https://marketplace.visualstudio.com/items?itemName=ms-python.python>
-
-#### A.1 Įsidiekite Python
-##### Windows
-1. Atsisiųskite Python iš <https://www.python.org/downloads/>.
-2. Diegimo lange būtinai pažymėkite **Add Python to PATH**.
-3. Patikrinkite terminale:
-```powershell
-py --version
-python --version
-```
-
-##### macOS
-1. Atsisiųskite Python iš <https://www.python.org/downloads/>.
-2. Įsidiekite pagal vedlį.
-3. Patikrinkite terminale:
-```bash
-python3 --version
-```
-
-#### A.2 Įsidiekite Python plėtinį VS Code
-1. Atidarykite `Extensions`.
-2. Suraskite **Python (Microsoft)**.
-3. Spauskite **Install**.
-
-CLI alternatyva:
-```bash
-code --install-extension ms-python.python
-```
-
-#### A.3 Sukurkite projektą ir virtualią aplinką
-1. Susikurkite projekto aplanką ir atidarykite VS Code:
-```bash
-mkdir hello-python
-cd hello-python
-code .
-```
-
-2. Sukurkite virtualią aplinką:
-
-Windows (PowerShell):
-```powershell
-py -m venv .venv
-.\.venv\Scripts\Activate.ps1
-python -m pip install --upgrade pip
-```
-
-macOS:
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install --upgrade pip
-```
-
-3. VS Code pasirinkite teisingą interpreterį:
-- `Ctrl/Cmd + Shift + P`
-- `Python: Select Interpreter`
-- Pasirinkite interpreterį iš `.venv`
-
-4. Sukurkite `main.py`:
 ```python
-print("Python veikia!")
+x = 5          # int
+y = 3.14       # float
+z = "labas"    # str
+b = True       # bool
+
+print(type(x))  # <class 'int'>
+print(type(y))  # <class 'float'>
 ```
 
-5. Paleiskite:
-- viršuje `Run Python File`
-- arba terminale:
-```bash
-python main.py
+**Tipo konvertavimas** (casting):
+```python
+n = int(input("Iveskite skaiciu: "))  # input() visada grąžina str -> verčiame į int
 ```
 
-### B variantas: C++ paruošimas VS Code aplinkoje
+---
 
-Oficialios nuorodos:
-- C/C++ plėtinys: <https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools>
-- C++ darbo aplinka VS Code: <https://code.visualstudio.com/docs/cpp/cpp-ide>
-- C++ macOS (clang): <https://code.visualstudio.com/docs/cpp/config-clang-mac>
-- C++ Windows (MinGW): <https://code.visualstudio.com/docs/cpp/config-mingw>
-- C++ Windows (MSVC alternatyva): <https://code.visualstudio.com/docs/cpp/config-msvc>
-- MSYS2 (Windows kompiliatoriui): <https://www.msys2.org/>
+## Teorija: operatoriai
 
-Windows naudotojams: rinkitės tik **vieną** C++ įrankių kelią:
-- **Kelias 1 (rekomenduojamas pamokoms):** `MSYS2 + g++`
-- **Kelias 2:** `MSVC + cl`
+### Aritmetiniai operatoriai
 
-#### B.1 Įsidiekite C/C++ plėtinį
-1. Atidarykite `Extensions`.
-2. Suraskite **C/C++ (Microsoft)**.
-3. Spauskite **Install**.
+| Operatorius | Operacija | Pavyzdys | Rezultatas |
+|---|---|---|---|
+| `+` | Sudėtis | `7 + 3` | `10` |
+| `-` | Atimtis | `7 - 3` | `4` |
+| `*` | Daugyba | `7 * 3` | `21` |
+| `/` | Dalyba (dešimtainė) | `7 / 2` | `3.5` |
+| `//` | Sveikoji dalyba | `7 // 2` | `3` |
+| `%` | Liekana | `7 % 2` | `1` |
+| `**` | Kėlimas laipsniu | `2 ** 8` | `256` |
 
-CLI alternatyva:
-```bash
-code --install-extension ms-vscode.cpptools
+```python
+a, b = 7, 2
+print(f"Dalyba: {a / b}")     # 3.5
+print(f"Sveikoji: {a // b}")  # 3
+print(f"Liekana: {a % b}")    # 1
+print(f"Laipsnis: {a ** b}")  # 49
 ```
 
-#### B.2 macOS: įsidiekite kompiliatorių (clang)
-1. Terminale paleiskite:
-```bash
-xcode-select --install
-```
-2. Patikrinkite:
-```bash
-clang++ --version
-```
+> **Patarimas:** `%` (liekana) labai dažnai naudojama norint patikrinti, ar skaičius dalinasi iš kito:
+> `x % 2 == 0` → skaičius lyginis
 
-#### B.3 Windows kelias 1: MSYS2 + g++ (rekomenduojama)
-1. Įsidiekite MSYS2 iš <https://www.msys2.org/>.
-2. Atidarykite **MSYS2 UCRT64** terminalą (ne PowerShell).
-3. Atnaujinkite paketų bazę:
-```bash
-pacman -Syu
-```
-4. Jei prašo, uždarykite terminalą, atidarykite iš naujo ir tęskite:
-```bash
-pacman -Su
-```
-5. Įsidiekite C++ įrankius:
-```bash
-pacman -S --needed base-devel mingw-w64-ucrt-x86_64-toolchain
-```
-6. Į Windows `PATH` pridėkite:
-```text
-C:\msys64\ucrt64\bin
-```
-7. Patikrinkite PowerShell lange:
-```powershell
-g++ --version
-gdb --version
-```
-8. Jei `pacman` komanda neveikia, reiškia atidarytas ne MSYS2 terminalas.
+### Palyginimo operatoriai
 
-#### B.4 Windows kelias 2: MSVC + cl (alternatyva)
-1. Įsidiekite Visual Studio Build Tools: <https://visualstudio.microsoft.com/downloads/>
-2. Diegimo metu pasirinkite workload **Desktop development with C++**.
-3. Atidarykite `x64 Native Tools Command Prompt for VS`.
-4. Patikrinkite:
-```bat
-cl
-```
-5. VS Code derinimui rinkitės `C++ Windows: cl.exe build and debug active file`.
+Palyginimas visada grąžina `True` arba `False`.
 
-#### B.5 Pirmas C++ testas
-1. Sukurkite `main.cpp`:
-```cpp
-#include <iostream>
+| Operatorius | Reikšmė | Pavyzdys | Rezultatas |
+|---|---|---|---|
+| `==` | Lygu | `5 == 5` | `True` |
+| `!=` | Nelygu | `5 != 3` | `True` |
+| `>` | Daugiau | `5 > 3` | `True` |
+| `<` | Mažiau | `5 < 3` | `False` |
+| `>=` | Daugiau arba lygu | `5 >= 5` | `True` |
+| `<=` | Mažiau arba lygu | `4 <= 5` | `True` |
 
-int main() {
-    std::cout << "C++ veikia!" << std::endl;
-    return 0;
-}
+### Loginiai operatoriai
+
+| Operatorius | Reikšmė | Pavyzdys |
+|---|---|---|
+| `and` | Ir (abu turi būti teisingi) | `x > 0 and x < 100` |
+| `or` | Arba (bent vienas turi būti teisingas) | `x == 0 or x == 1` |
+| `not` | Ne (apverčia loginę reikšmę) | `not (x > 0)` |
+
+```python
+x = 25
+print(x >= 18 and x < 30)  # True – x yra tarp 18 ir 30
+print(x < 0 or x > 100)    # False – nei viena salyga netenkinama
+print(not (x > 0))         # False – x > 0 yra True, not apvercia i False
 ```
 
-2. Kompiliavimas ir paleidimas:
+---
 
-macOS:
-```bash
-clang++ main.cpp -std=c++17 -Wall -Wextra -g -o main
-./main
+## Teorija: sąlyginė valdymo struktūra
+
+`if`, `elif`, `else` leidžia programai priimti sprendimus.
+
+### Sintaksė
+
+```python
+if <salyga>:
+    # vykdoma, jei salyga True
+elif <kita salyga>:
+    # vykdoma, jei pirmoji False, bet si True
+else:
+    # vykdoma, jei visos salygos False
 ```
 
-Windows su MSYS2 (MSYS2 UCRT64 terminale):
-```bash
-g++ main.cpp -std=c++17 -Wall -Wextra -g -o main.exe
-./main.exe
+> **Svarbu:** Python naudoja **įtrauką (4 tarpai arba Tab)** vietoj skliaustų. Blokas prasideda po `:`.
+
+### Pavyzdys
+
+```python
+amzius = int(input("Iveskite amziu: "))
+
+if amzius < 18:
+    print("Nepilnametis")
+elif amzius < 65:
+    print("Suauges")
+else:
+    print("Pensininkas")
 ```
 
-Windows su MSYS2 (PowerShell, jei `C:\msys64\ucrt64\bin` pridėta į `PATH`):
-```powershell
-g++ main.cpp -std=c++17 -Wall -Wextra -g -o main.exe
-.\main.exe
+### Įdėtinės sąlygos
+
+```python
+x = int(input("Skaicius: "))
+
+if x % 2 == 0:
+    print("Lyginis")
+    if x > 100:
+        print("...ir didesnis nei 100")
+else:
+    print("Nelyginis")
 ```
 
-Windows su MSVC (x64 Native Tools Command Prompt):
-```bat
-cl /EHsc /std:c++17 main.cpp
-main.exe
-```
+---
 
-3. Derinimas VS Code:
-- Atidarykite `main.cpp`
-- Spauskite `F5`
-- Pasirinkite:
-- macOS: `C/C++: clang++ build and debug active file`
-- Windows su MSYS2: `C/C++: g++.exe build and debug active file`
-- Windows su MSVC: `C++ Windows: cl.exe build and debug active file`
+## Namų darbai
 
-## Greitas pasiruošimo patikrinimas prieš pamoką
-1. VS Code atsidaro be klaidų.
-2. Prisijungimas prie GitHub VS Code viduje pavyksta.
-3. Live Share plėtinys įdiegtas ir galima sukurti sesijos nuorodą.
-4. Jei pasirinktas Python kelias: `main.py` sėkmingai paleidžiamas.
-5. Jei pasirinktas C++ kelias: `main.cpp` susikompiliuoja ir paleidžiamas (per `g++` arba `cl`).
+**Pirma užduotis:** Naudojantis gidu [docs/VS_CODE_SETUP_GUIDE.md](docs/VS_CODE_SETUP_GUIDE.md), pasiruošti darbui — susikonfigūruoti „Visual Studio Code" ir „Python" aplinką savo kompiuteryje.
 
-## Dažniausios problemos ir sprendimai
+Tada atlikti **6 mini programavimo uždavinius**. Kiekvienas uždavinys turi savo failą su aprašymu. Kodą rašyk tiesiai į tą failą, žemiau docstring teksto (kai `"""..."""` baigiasi).
 
-### `code` komanda neveikia terminale
-- macOS: paleiskite `Shell Command: Install 'code' command in PATH`.
-- Windows: perkraukite terminalą arba kompiuterį po diegimo.
+---
 
-### `python` arba `py` neatpažįstama
-- Windows: perinstaliuokite Python ir pažymėkite **Add Python to PATH**.
-- macOS: naudokite `python3` komandą.
+### ND1 — Slaptažodžio sistema
 
-### `g++` neatpažįstama Windows sistemoje
-- Jei dirbate su MSYS2 keliu, pirmiausia pabandykite `MSYS2 UCRT64` terminale.
-- Jei norite naudoti PowerShell, patikrinkite, ar `C:\msys64\ucrt64\bin` tikrai pridėta į `PATH`.
-- Uždarykite ir atidarykite terminalą iš naujo.
+Failas: [20260326-pamoka/nd1.py](20260326-pamoka/nd1.py)
 
-### Windows: komanda veikia viename terminale, bet neveikia kitame
-- Tai dažna pradedančiųjų situacija ir dažniausiai yra normalu.
-- `pacman` turi veikti tik `MSYS2 UCRT64` terminale.
-- `cl` turi veikti tik `x64 Native Tools Command Prompt for VS`.
-- `winget`, `py`, `python`, `git`, `code` dažniausiai naudojami `PowerShell`.
+**Užduotis:**
+- Paprašyk vartotojo įvesti slaptažodį.
+- Jei įvedė `"admin123"` → išvesk `"Prisijungta"`.
+- Kitaip → išvesk `"Klaida"`.
 
-### Live Share neprisijungia
-- Patikrinkite, ar VS Code esate prisijungę prie GitHub.
-- Patikrinkite, ar ugniasienė / antivirusinė neblokuoja VS Code.
-- Iš naujo paleiskite VS Code ir pakartokite `Live Share: Sign In`.
+**Naudojama:** `input()`, `if`, `else`, palyginimo operatorius `==`
 
+---
+
+### ND2 — Dalumo testas
+
+Failas: [20260326-pamoka/nd2.py](20260326-pamoka/nd2.py)
+
+**Užduotis:**
+- Paprašyk vartotojo įvesti skaičių.
+- Patikrink, ar jis dalinasi iš 2, 3 ir 5.
+- Išvesk vieną iš šių atsakymų:
+  - `"Dalinasi iš 2 ir 3"`
+  - `"Dalinasi tik iš 2"`
+  - `"Dalinasi tik iš 3"`
+  - `"Dalinasi tik iš 5"`
+  - `"Nesidalina nei iš 2, nei iš 3, nei iš 5"`
+
+**Naudojama:** `input()`, `int()`, `%`, `==`, `if`, `elif`, `else`, `and`
+
+---
+
+### ND3 — Sekundės → valandos, minutės, sekundės
+
+Failas: [20260326-pamoka/nd3.py](20260326-pamoka/nd3.py)
+
+**Užduotis:**
+- Paprašyk vartotojo įvesti sekundžių skaičių.
+- Paversk į valandas, minutes ir likusias sekundes.
+
+| Įvestis | Rezultatas |
+|---|---|
+| `135` | `0 val, 2 min, 15 sek` |
+| `4953` | `1 val, 22 min, 33 sek` |
+
+**Naudojama:** `//` (sveikoji dalyba), `%` (liekana)
+
+> **Patarimas:**
+> Naudok sveikąją dalybą ir liekanos operatorius gauti rezutatus.
+
+---
+
+### ND4 — Dviženklio skaičiaus analizė
+
+Failas: [20260326-pamoka/nd4.py](20260326-pamoka/nd4.py)
+
+**Užduotis:**
+- Įvesk skaičių ir patikrink, ar jis **dviženklis** (nuo 10 iki 99).
+- Jei ne → išvesk `"Skaičius nėra dviženklis"`.
+- Jei taip → apskaičiuok:
+  - ar lyginis / nelyginis
+  - dešimčių skaitmenį
+  - vienetų skaitmenį
+  - skaitmenų sumą
+  - kuris skaitmuo didesnis
+  - atvirkštinį skaičių (apsuktais skaitmenimis)
+
+**Naudojama:** `//`, `%`, `if`, `elif`, `else`, `and`, palyginimo operatoriai
+
+> **Patarimas:**
+> ```python
+> desimtys = x // 10   # pvz. 74 // 10 = 7
+> vienetai = x % 10    # pvz. 74 % 10 = 4
+> ```
+
+---
+
+### ND5 — Trikampio tikrinimas
+
+Failas: [20260326-pamoka/nd5.py](20260326-pamoka/nd5.py)
+
+**Užduotis:**
+- Paprašyk įvesti 3 trikampio kraštines: `a`, `b`, `c`.
+- Patikrink, ar iš jų galima sudaryti trikampį.
+- Trikampio taisyklė — kiekviena kraštinė turi būti mažesnė nei dviejų kitų suma:
+  - `a + b > c`
+  - `a + c > b`
+  - `b + c > a`
+- Išvesk `"Trikampis galimas"` arba `"Trikampis negalimas"`.
+
+**Naudojama:** `input()`, `float()` arba `int()`, `>`, `and`, `if`, `else`
+
+---
+
+### ND6 — Keliamieji metai
+
+Failas: [20260326-pamoka/nd6.py](20260326-pamoka/nd6.py)
+
+**Užduotis:**
+- Paprašyk įvesti metus.
+- Nustatyk, ar jie **keliamieji**.
+
+**Taisyklė:**
+- Dalinasi iš 400 → keliamieji
+- Dalinasi iš 4, bet nesidalina iš 100 → keliamieji
+- Visais kitais atvejais → nekeliamieji
+
+**Naudojama:** `%`, `==`, `!=`, `and`, `or`, `if`, `else`
+
+---
+
+## Namų darbų suvestinė
+
+| # | Failas | Tema | Statusas |
+|---|---|---|---|
+| 1 | [nd1.py](20260326-pamoka/nd1.py) | Slaptažodžio sistema | ⬜ |
+| 2 | [nd2.py](20260326-pamoka/nd2.py) | Dalumo testas | ⬜ |
+| 3 | [nd3.py](20260326-pamoka/nd3.py) | Sekundės → val / min / sek | ⬜ |
+| 4 | [nd4.py](20260326-pamoka/nd4.py) | Dviženklio skaičiaus analizė | ⬜ |
+| 5 | [nd5.py](20260326-pamoka/nd5.py) | Trikampio tikrinimas | ⬜ |
+| 6 | [nd6.py](20260326-pamoka/nd6.py) | Keliamieji metai | ⬜ |
+
+> Atliktas = pakeisk ⬜ į ✅ arba pasakyk mokytojui!
