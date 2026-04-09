@@ -16,8 +16,8 @@ x += 5
 print(x)
 
 
-def stastika(mas, n):
+def statistika(mas, n):
     return 1.349549584895
 
 
-print(f"{stastika(1,2):.2f} stastika")
+print(f"{statistika(1,2):.2f} statistika")

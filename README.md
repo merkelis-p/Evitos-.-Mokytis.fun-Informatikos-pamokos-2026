@@ -1,339 +1,173 @@
 # Evitos programavimo pamokos
 
-Šioje repozitorijoje saugomi visi **Evitos Š.** programavimo pamokų failai, namų darbų užduotys ir mokomoji medžiaga.
-Kalba: **Python**. Atnaujinta: **2026-03-30**.
+Šioje repozitorijoje saugomi programavimo pamokų failai, užduotys ir pagalbinė medžiaga.
+Kalba: **Python**. Atnaujinta: **2026-04-08**.
 
 ---
 
 ## Turinys
 
-1. [Sparčios nuorodos](#sparčios-nuorodos)
-2. [Repozitorijos struktūra](#repozitorijos-struktūra)
-3. [Pamokų apžvalga](#pamokų-apžvalga)
-4. [Teorija: duomenų tipai](#teorija-duomenų-tipai)
-5. [Teorija: operatoriai](#teorija-operatoriai)
-6. [Teorija: sąlyginė valdymo struktūra](#teorija-sąlyginė-valdymo-struktūra)
-7. [Namų darbai](#namų-darbai)
+- [Evitos programavimo pamokos](#evitos-programavimo-pamokos)
+  - [Turinys](#turinys)
+  - [Aktualu Dabar](#aktualu-dabar)
+  - [Svarbios Nuorodos](#svarbios-nuorodos)
+  - [Namų Darbas Kitai Pamokai](#namų-darbas-kitai-pamokai)
+    - [1. GitHub pasiruošimas](#1-github-pasiruošimas)
+    - [2. Jei dar neįkėlei senesnių namų darbų](#2-jei-dar-neįkėlei-senesnių-namų-darbų)
+    - [3. Dabartinė pamoka: 4 mini uždaviniai](#3-dabartinė-pamoka-4-mini-uždaviniai)
+    - [4. Kaip tikrintis](#4-kaip-tikrintis)
+  - [20260402 Pamokos Failai](#20260402-pamokos-failai)
+  - [Paruošta Kitai Pamokai](#paruošta-kitai-pamokai)
+  - [Senesnė Medžiaga](#senesnė-medžiaga)
 
 ---
 
-## Sparčios nuorodos
+## Aktualu Dabar
+
+Dabartinis pagrindinis aplankas yra [20260402-pamoka](20260402-pamoka/).
+
+Šitos pamokos tema yra `for` ciklas ir jo jungimas su ankstesnėmis temomis:
+
+- skaičių intervalais;
+- dalumu ir keliomis sąlygomis vienu metu;
+- `if / elif / else`;
+- suma, kvadratų suma ir skaitikliais;
+- didžiausios ir mažiausios reikšmės paieška;
+- sekos pokyčių analizė.
+
+Jei atsidarai repo ir nežinai nuo ko pradėti, pradėk nuo šitos sekos:
+
+1. [20260402-pamoka/ND_UZDUOTIS.md](20260402-pamoka/ND_UZDUOTIS.md)
+2. [20260402-pamoka/TEORIJA.md](20260402-pamoka/TEORIJA.md)
+3. [20260402-pamoka/u1.py](20260402-pamoka/u1.py) – [20260402-pamoka/u4.py](20260402-pamoka/u4.py)
+4. [20260402-pamoka/nd1.py](20260402-pamoka/nd1.py) – [20260402-pamoka/nd4.py](20260402-pamoka/nd4.py)
+5. [20260402-pamoka/checker.py](20260402-pamoka/checker.py)
+
+---
+
+## Svarbios Nuorodos
 
 | Kas | Kur |
 |---|---|
-| VS Code + Python konfigūravimo gidas | [docs/VS_CODE_SETUP_GUIDE.md](docs/VS_CODE_SETUP_GUIDE.md) |
-| Pirma pamoka (2026-03-19) | [20260319-pamoka/main.py](20260319-pamoka/main.py) |
-| Antra pamoka – klasės darbai (2026-03-26) | [20260326-pamoka/](20260326-pamoka/) |
-| Namų darbai po 20260326 pamokos | [nd1.py](20260326-pamoka/nd1.py) – [nd6.py](20260326-pamoka/nd6.py) |
+| VS Code + Python paruošimas | [docs/VS_CODE_SETUP_GUIDE.md](docs/VS_CODE_SETUP_GUIDE.md) |
+| Git + GitHub pradžios gidas | [docs/GIT_GITHUB_PRADEDANCIOJO_GIDAS.md](docs/GIT_GITHUB_PRADEDANCIOJO_GIDAS.md) |
+| Dabartinės pamokos užduotys | [20260402-pamoka/ND_UZDUOTIS.md](20260402-pamoka/ND_UZDUOTIS.md) |
+| Dabartinės pamokos teorija | [20260402-pamoka/TEORIJA.md](20260402-pamoka/TEORIJA.md) |
+| Dabartinės pamokos tikrintuvas | [20260402-pamoka/checker.py](20260402-pamoka/checker.py) |
+| Kitos pamokos ilga užduotis | [20260409-pamoka/ND_UZDUOTIS.md](20260409-pamoka/ND_UZDUOTIS.md) |
+| Praėjusios pamokos medžiaga | [docs/20260326-pamoka.md](docs/20260326-pamoka.md) |
 
 ---
 
-## Repozitorijos struktūra
+## Namų Darbas Kitai Pamokai
 
+Iki kitos pamokos reikia atlikti šiuos žingsnius.
+
+### 1. GitHub pasiruošimas
+
+Perskaityk ir pasidaryk GitHub setup iki `SSH` dalies:
+
+- [docs/GIT_GITHUB_PRADEDANCIOJO_GIDAS.md](docs/GIT_GITHUB_PRADEDANCIOJO_GIDAS.md)
+
+Reikia:
+
+1. Susikurti `GitHub` paskyrą.
+2. Įsidiegti `Git`.
+3. Susitvarkyti bazinį `git config`.
+4. Išmokti `git clone`, `git status`, `git add`, `git commit`, `git push`, `git pull`.
+
+### 2. Jei dar neįkėlei senesnių namų darbų
+
+Jei dar neįkėlei 2026-03-26 pamokos namų darbų, jų aprašymai yra čia:
+
+- [docs/20260326-pamoka.md](docs/20260326-pamoka.md)
+
+Jei juos nori sukelti į repozitoriją, gali naudoti:
+
+```bash
+git status
+git add .
+git commit -m "Ikelti ankstesni namu darbai"
+git push
 ```
-.
-├── README.md                    # esi čia – pagrindinis informacinis dokumentas
-├── 20260319-pamoka/
-│   └── main.py                  # pirmos pamokos kodas
-├── 20260326-pamoka/
-│   ├── u1.py                    # klasės darbas: duomenų tipai, input
-│   ├── u2.py                    # klasės darbas: aritmetiniai operatoriai (skaičiuotuvas)
-│   ├── u3.py                    # klasės darbas: palyginimas (lyginis / nelyginis)
-│   ├── u4.py                    # klasės darbas: if / elif / else
-│   ├── nd1.py                   # namų darbas 1: slaptažodžio sistema
-│   ├── nd2.py                   # namų darbas 2: dalumo testas
-│   ├── nd3.py                   # namų darbas 3: sekundės -> val / min / sek
-│   ├── nd4.py                   # namų darbas 4: dviženklio skaičiaus analizė
-│   ├── nd5.py                   # namų darbas 5: trikampio tikrinimas
-│   └── nd6.py                   # namų darbas 6: keliamieji metai
-└── docs/
-    └── VS_CODE_SETUP_GUIDE.md   # VS Code ir Python diegimo gidas
+
+### 3. Dabartinė pamoka: 4 mini uždaviniai
+
+Dirbk tokia tvarka:
+
+1. Perskaityk [20260402-pamoka/ND_UZDUOTIS.md](20260402-pamoka/ND_UZDUOTIS.md).
+2. Perskaityk [20260402-pamoka/TEORIJA.md](20260402-pamoka/TEORIJA.md).
+3. Jei reikia, pasižiūrėk į [20260402-pamoka/u1.py](20260402-pamoka/u1.py), [20260402-pamoka/u2.py](20260402-pamoka/u2.py), [20260402-pamoka/u3.py](20260402-pamoka/u3.py), [20260402-pamoka/u4.py](20260402-pamoka/u4.py).
+4. Išspręsk [20260402-pamoka/nd1.py](20260402-pamoka/nd1.py), [20260402-pamoka/nd2.py](20260402-pamoka/nd2.py), [20260402-pamoka/nd3.py](20260402-pamoka/nd3.py) ir [20260402-pamoka/nd4.py](20260402-pamoka/nd4.py).
+
+### 4. Kaip tikrintis
+
+Su `-d` — parodo vieną pavyzdinį atvejį (ką turi atspausdinti programa). Naudok rašydama sprendimą:
+
+```bash
+cd 20260402-pamoka
+python3 checker.py -d nd1.py
+```
+
+Be `-d` — paleidžia visus testus ir tikrina, ar atsakymai teisingi. Naudok kai manai, kad sprendimas jau veikia:
+
+```bash
+cd 20260402-pamoka
+python3 checker.py nd1.py
+```
+
+Visų failų tikrinimas iš karto:
+
+```bash
+cd 20260402-pamoka
+python3 checker.py
 ```
 
 ---
 
-## Pamokų apžvalga
+## 20260402 Pamokos Failai
 
-### Pamoka 1 — 2026-03-19
-
-Failas: [20260319-pamoka/main.py](20260319-pamoka/main.py)
-
-Pirmoje pamokoje susipažinome su Python aplinka ir pagrindiniais principais:
-- `print()` – teksto ir reikšmių spausdinimas
-- Kintamieji ir jų keitimas
-- Aritmetinės operacijos su kintamaisiais
-- Bazinės funkcijos (trumpas pavyzdys)
-
----
-
-### Pamoka 2 — 2026-03-26
-
-Klasės darbų failai:
-
-| Failas | Aprašymas |
+| Failas | Kam skirtas |
 |---|---|
-| [u1.py](20260326-pamoka/u1.py) | `int`, `float`, `str`, `bool` tipai; `input()`; `type()` |
-| [u2.py](20260326-pamoka/u2.py) | Aritmetiniai operatoriai: `+`, `-`, `*`, `/`, `%`, `**`, `//` |
-| [u3.py](20260326-pamoka/u3.py) | Palyginimo operatorius `==`; lyginis / nelyginis tikrinimas |
-| [u4.py](20260326-pamoka/u4.py) | `if`, `elif`, `else`; loginiai operatoriai `and`, `or` |
+| [20260402-pamoka/ND_UZDUOTIS.md](20260402-pamoka/ND_UZDUOTIS.md) | 4 matematiškesni mini uždaviniai |
+| [20260402-pamoka/TEORIJA.md](20260402-pamoka/TEORIJA.md) | `for`, dalumo, intervalų ir sekų teorija |
+| [20260402-pamoka/nd1.py](20260402-pamoka/nd1.py) | Mini uždavinys 1 |
+| [20260402-pamoka/nd2.py](20260402-pamoka/nd2.py) | Mini uždavinys 2 |
+| [20260402-pamoka/nd3.py](20260402-pamoka/nd3.py) | Mini uždavinys 3 |
+| [20260402-pamoka/nd4.py](20260402-pamoka/nd4.py) | Mini uždavinys 4 |
+| [20260402-pamoka/checker.py](20260402-pamoka/checker.py) | Tikrintuvas visiems 4 failams |
+| [20260402-pamoka/u1.py](20260402-pamoka/u1.py) | `for` ciklo pradžios pavyzdžiai |
+| [20260402-pamoka/u2.py](20260402-pamoka/u2.py) | `range()` ir intervalų pavyzdžiai |
+| [20260402-pamoka/u3.py](20260402-pamoka/u3.py) | Suma ir vidurkis su `for` |
+| [20260402-pamoka/u4.py](20260402-pamoka/u4.py) | `while` ir `for` palyginimas |
 
 ---
 
-## Teorija: duomenų tipai
+## Paruošta Kitai Pamokai
 
-Python turi keturis pagrindinius paprastus duomenų tipus, kuriuos naudojame šiuo metu:
+Ilga užduotis „Robotų Arena“ perkelta į [20260409-pamoka](20260409-pamoka/).
 
-| Tipas | Pavadinimas | Pavyzdys |
-|---|---|---|
-| `int` | Sveikasis skaičius | `x = 5` |
-| `float` | Dešimtainis skaičius | `y = 3.14` |
-| `str` | Tekstas (eilutė) | `z = "labas"` |
-| `bool` | Loginė reikšmė | `b = True` |
+Ten šiuo metu yra:
 
-```python
-x = 5          # int
-y = 3.14       # float
-z = "labas"    # str
-b = True       # bool
-
-print(type(x))  # <class 'int'>
-print(type(y))  # <class 'float'>
-```
-
-**Tipo konvertavimas** (casting):
-```python
-n = int(input("Iveskite skaiciu: "))  # input() visada grąžina str -> verčiame į int
-```
+- [20260409-pamoka/ND_UZDUOTIS.md](20260409-pamoka/ND_UZDUOTIS.md)
+- [20260409-pamoka/TEORIJA.md](20260409-pamoka/TEORIJA.md)
+- [20260409-pamoka/checker.py](20260409-pamoka/checker.py)
+- [20260409-pamoka/nd1.py](20260409-pamoka/nd1.py)
 
 ---
 
-## Teorija: operatoriai
+## Senesnė Medžiaga
 
-### Aritmetiniai operatoriai
+Senesnė su 2026-03-26 pamoka susijusi medžiaga ir namų darbų aprašymai perkelti į:
 
-| Operatorius | Operacija | Pavyzdys | Rezultatas |
-|---|---|---|---|
-| `+` | Sudėtis | `7 + 3` | `10` |
-| `-` | Atimtis | `7 - 3` | `4` |
-| `*` | Daugyba | `7 * 3` | `21` |
-| `/` | Dalyba (dešimtainė) | `7 / 2` | `3.5` |
-| `//` | Sveikoji dalyba | `7 // 2` | `3` |
-| `%` | Liekana | `7 % 2` | `1` |
-| `**` | Kėlimas laipsniu | `2 ** 8` | `256` |
+- [docs/20260326-pamoka.md](docs/20260326-pamoka.md)
 
-```python
-a, b = 7, 2
-print(f"Dalyba: {a / b}")     # 3.5
-print(f"Sveikoji: {a // b}")  # 3
-print(f"Liekana: {a % b}")    # 1
-print(f"Laipsnis: {a ** b}")  # 49
-```
+Taip pagrindinis `README.md` lieka trumpas ir orientuotas į dabar aktualią užduotį.
 
-> **Patarimas:** `%` (liekana) labai dažnai naudojama norint patikrinti, ar skaičius dalinasi iš kito:
-> `x % 2 == 0` → skaičius lyginis
 
-### Palyginimo operatoriai
 
-Palyginimas visada grąžina `True` arba `False`.
 
-| Operatorius | Reikšmė | Pavyzdys | Rezultatas |
-|---|---|---|---|
-| `==` | Lygu | `5 == 5` | `True` |
-| `!=` | Nelygu | `5 != 3` | `True` |
-| `>` | Daugiau | `5 > 3` | `True` |
-| `<` | Mažiau | `5 < 3` | `False` |
-| `>=` | Daugiau arba lygu | `5 >= 5` | `True` |
-| `<=` | Mažiau arba lygu | `4 <= 5` | `True` |
 
-### Loginiai operatoriai
 
-| Operatorius | Reikšmė | Pavyzdys |
-|---|---|---|
-| `and` | Ir (abu turi būti teisingi) | `x > 0 and x < 100` |
-| `or` | Arba (bent vienas turi būti teisingas) | `x == 0 or x == 1` |
-| `not` | Ne (apverčia loginę reikšmę) | `not (x > 0)` |
 
-```python
-x = 25
-print(x >= 18 and x < 30)  # True – x yra tarp 18 ir 30
-print(x < 0 or x > 100)    # False – nei viena salyga netenkinama
-print(not (x > 0))         # False – x > 0 yra True, not apvercia i False
-```
 
----
-
-## Teorija: sąlyginė valdymo struktūra
-
-`if`, `elif`, `else` leidžia programai priimti sprendimus.
-
-### Sintaksė
-
-```python
-if <salyga>:
-    # vykdoma, jei salyga True
-elif <kita salyga>:
-    # vykdoma, jei pirmoji False, bet si True
-else:
-    # vykdoma, jei visos salygos False
-```
-
-> **Svarbu:** Python naudoja **įtrauką (4 tarpai arba Tab)** vietoj skliaustų. Blokas prasideda po `:`.
-
-### Pavyzdys
-
-```python
-amzius = int(input("Iveskite amziu: "))
-
-if amzius < 18:
-    print("Nepilnametis")
-elif amzius < 65:
-    print("Suauges")
-else:
-    print("Pensininkas")
-```
-
-### Įdėtinės sąlygos
-
-```python
-x = int(input("Skaicius: "))
-
-if x % 2 == 0:
-    print("Lyginis")
-    if x > 100:
-        print("...ir didesnis nei 100")
-else:
-    print("Nelyginis")
-```
-
----
-
-## Namų darbai
-
-**Pirma užduotis:** Naudojantis gidu [docs/VS_CODE_SETUP_GUIDE.md](docs/VS_CODE_SETUP_GUIDE.md), pasiruošti darbui — susikonfigūruoti „Visual Studio Code" ir „Python" aplinką savo kompiuteryje.
-
-Tada atlikti **6 mini programavimo uždavinius**. Kiekvienas uždavinys turi savo failą su aprašymu. Kodą rašyk tiesiai į tą failą, žemiau docstring teksto (kai `"""..."""` baigiasi).
-
----
-
-### ND1 — Slaptažodžio sistema
-
-Failas: [20260326-pamoka/nd1.py](20260326-pamoka/nd1.py)
-
-**Užduotis:**
-- Paprašyk vartotojo įvesti slaptažodį.
-- Jei įvedė `"admin123"` → išvesk `"Prisijungta"`.
-- Kitaip → išvesk `"Klaida"`.
-
-**Naudojama:** `input()`, `if`, `else`, palyginimo operatorius `==`
-
----
-
-### ND2 — Dalumo testas
-
-Failas: [20260326-pamoka/nd2.py](20260326-pamoka/nd2.py)
-
-**Užduotis:**
-- Paprašyk vartotojo įvesti skaičių.
-- Patikrink, ar jis dalinasi iš 2, 3 ir 5.
-- Išvesk vieną iš šių atsakymų:
-  - `"Dalinasi iš 2 ir 3"`
-  - `"Dalinasi tik iš 2"`
-  - `"Dalinasi tik iš 3"`
-  - `"Dalinasi tik iš 5"`
-  - `"Nesidalina nei iš 2, nei iš 3, nei iš 5"`
-
-**Naudojama:** `input()`, `int()`, `%`, `==`, `if`, `elif`, `else`, `and`
-
----
-
-### ND3 — Sekundės → valandos, minutės, sekundės
-
-Failas: [20260326-pamoka/nd3.py](20260326-pamoka/nd3.py)
-
-**Užduotis:**
-- Paprašyk vartotojo įvesti sekundžių skaičių.
-- Paversk į valandas, minutes ir likusias sekundes.
-
-| Įvestis | Rezultatas |
-|---|---|
-| `135` | `0 val, 2 min, 15 sek` |
-| `4953` | `1 val, 22 min, 33 sek` |
-
-**Naudojama:** `//` (sveikoji dalyba), `%` (liekana)
-
-> **Patarimas:**
-> Naudok sveikąją dalybą ir liekanos operatorius gauti rezutatus.
-
----
-
-### ND4 — Dviženklio skaičiaus analizė
-
-Failas: [20260326-pamoka/nd4.py](20260326-pamoka/nd4.py)
-
-**Užduotis:**
-- Įvesk skaičių ir patikrink, ar jis **dviženklis** (nuo 10 iki 99).
-- Jei ne → išvesk `"Skaičius nėra dviženklis"`.
-- Jei taip → apskaičiuok:
-  - ar lyginis / nelyginis
-  - dešimčių skaitmenį
-  - vienetų skaitmenį
-  - skaitmenų sumą
-  - kuris skaitmuo didesnis
-  - atvirkštinį skaičių (apsuktais skaitmenimis)
-
-**Naudojama:** `//`, `%`, `if`, `elif`, `else`, `and`, palyginimo operatoriai
-
-> **Patarimas:**
-> ```python
-> desimtys = x // 10   # pvz. 74 // 10 = 7
-> vienetai = x % 10    # pvz. 74 % 10 = 4
-> ```
-
----
-
-### ND5 — Trikampio tikrinimas
-
-Failas: [20260326-pamoka/nd5.py](20260326-pamoka/nd5.py)
-
-**Užduotis:**
-- Paprašyk įvesti 3 trikampio kraštines: `a`, `b`, `c`.
-- Patikrink, ar iš jų galima sudaryti trikampį.
-- Trikampio taisyklė — kiekviena kraštinė turi būti mažesnė nei dviejų kitų suma:
-  - `a + b > c`
-  - `a + c > b`
-  - `b + c > a`
-- Išvesk `"Trikampis galimas"` arba `"Trikampis negalimas"`.
-
-**Naudojama:** `input()`, `float()` arba `int()`, `>`, `and`, `if`, `else`
-
----
-
-### ND6 — Keliamieji metai
-
-Failas: [20260326-pamoka/nd6.py](20260326-pamoka/nd6.py)
-
-**Užduotis:**
-- Paprašyk įvesti metus.
-- Nustatyk, ar jie **keliamieji**.
-
-**Taisyklė:**
-- Dalinasi iš 400 → keliamieji
-- Dalinasi iš 4, bet nesidalina iš 100 → keliamieji
-- Visais kitais atvejais → nekeliamieji
-
-**Naudojama:** `%`, `==`, `!=`, `and`, `or`, `if`, `else`
-
----
-
-## Namų darbų suvestinė
-
-| # | Failas | Tema | Statusas |
-|---|---|---|---|
-| 1 | [nd1.py](20260326-pamoka/nd1.py) | Slaptažodžio sistema | ⬜ |
-| 2 | [nd2.py](20260326-pamoka/nd2.py) | Dalumo testas | ⬜ |
-| 3 | [nd3.py](20260326-pamoka/nd3.py) | Sekundės → val / min / sek | ⬜ |
-| 4 | [nd4.py](20260326-pamoka/nd4.py) | Dviženklio skaičiaus analizė | ⬜ |
-| 5 | [nd5.py](20260326-pamoka/nd5.py) | Trikampio tikrinimas | ⬜ |
-| 6 | [nd6.py](20260326-pamoka/nd6.py) | Keliamieji metai | ⬜ |
-
-> Atliktas = pakeisk ⬜ į ✅ arba pasakyk mokytojui!
