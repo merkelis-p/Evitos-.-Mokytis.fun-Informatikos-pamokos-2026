@@ -224,3 +224,6 @@ Checkeris tikrins:
 - ar panaudotas `for` ciklas;
 - ar yra reikalingi kalbos elementai pagal užduoties tipą.
 
+
+
+

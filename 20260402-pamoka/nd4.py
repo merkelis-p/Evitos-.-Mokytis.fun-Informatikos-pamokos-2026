@@ -12,4 +12,3 @@ Išvestis:
 - Padidejimu: w
 """
 
-# Tavo kodas žemiau
