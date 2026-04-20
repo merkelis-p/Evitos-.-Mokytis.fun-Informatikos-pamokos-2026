@@ -1,12 +1,4 @@
-# „Robotų Arena“
-
-**Maksimalus vertinimas – 30 taškų**
-
-> **Failas:** kurk `nd1.py` tame pačiame aplanke  
-> **Tikrinimas:** paleisk `checker.py`  
-> **Formatas:** tik `stdin` / `stdout`
-
----
+"""
 
 ## Situacija
 
@@ -212,24 +204,233 @@ Treniruociu_iki_finalo: c
 | 2 | `4 75 5`<br>`Nova 60 3 0 5 2 0`<br>`Orka 72 2 4 0 4 1`<br>`Pulsar 73 1 1 0 3 0`<br>`Rytas 74 4 0 25 4 0` | `Bronzos_lyga:`<br>`Nova 64 32.00 Bronza 6 4`<br>`Orka 84 21.00 Diskvalifikuota 8 4`<br>`Pulsar 76 25.33 Bronza 7 6`<br>`Rytas 65 16.25 Bronza 6 5`<br><br>`Finalo_komisija:`<br>`Finalistu_skaicius: 1`<br>`Finalistai: Pulsar`<br>`Tiksliai_ant_ribos: 0`<br>`Tvarkingos_komandos: 2`<br><br>`Komandu_radaras:`<br>`Pirma_virs_90: NERA`<br>`Rizikos_komandos: 1`<br>`Bonusu_komandos: 2`<br><br>`Boss_level:`<br>`Silpniausia_komanda: Nova`<br>`Treniruociu_iki_finalo: 3` |
 | 3 | `2 80 10`<br>`Zen 80 0 0 0 4 1`<br>`Yra 50 0 0 0 5 1` | `Bronzos_lyga:`<br>`Zen 80 20.00 Diskvalifikuota 8 0`<br>`Yra 50 10.00 Diskvalifikuota 5 0`<br><br>`Finalo_komisija:`<br>`Finalistu_skaicius: 0`<br>`Finalistai: NERA`<br>`Tiksliai_ant_ribos: 1`<br>`Tvarkingos_komandos: 0`<br><br>`Komandu_radaras:`<br>`Pirma_virs_90: NERA`<br>`Rizikos_komandos: 0`<br>`Bonusu_komandos: 0`<br><br>`Boss_level:`<br>`Silpniausia_komanda: NERA`<br>`Treniruociu_iki_finalo: 0` |
 
+
+
+
+Tokiose užduotyse verta kurti trumpus, aiškius tarpinius kintamuosius:
+
+```text
+diskvalifikuota = ar komanda diskvalifikuota?
+finale = ar komanda patenka i finala?
+tvarkinga = ar komanda tvarkinga?
+rizika = ar komanda rizikos grupeje?
+su_bonusais = ar turi bent viena bonusa?
+```
+
+Tai padeda:
+
+- lengviau skaityti kodą;
+- mažiau kartoti tą pačią sąlygą;
+- lengviau susigaudyti, ką tikrini.
+
+Mintis tokia: vietoj ilgos sąlygos keliuose skirtinguose sakiniuose, vieną kartą pasidarai aiškų tarpinį atsakymą.
+
 ---
 
-## Kaip bus tikrinama
+## 16. Galima darbo eiga
 
-`checker.py` tikrins ne vieną pavyzdį, o daug skirtingų testų:
+Vienas normalus planas būtų toks:
 
-- paprastus testus;
-- ribinius atvejus;
-- slaptus testus su kitomis reikšmėmis.
+1. Nuskaityti `n`, `r`, `p`.
+2. Iš karto atspausdinti `Bronzos_lyga:`.
+3. Prieš ciklą susikurti visus bendrus kintamuosius su pradine reikšme.
+4. Su `for` ciklu perskaityti kiekvieną komandą.
+5. Ciklo viduje:
+    - paversti reikšmes į skaičius;
+    - apskaičiuoti vienos komandos rezultatus;
+    - išspausdinti tai, kas priklauso pirmai daliai;
+    - atnaujinti bendrus atsakymus vėlesnėms dalims.
+6. Po `for` ciklo atspausdinti `Finalo_komisija` dalį.
+7. Tada atspausdinti `Komandu_radaras` dalį.
+8. Tada su `while` logika užbaigti `Boss_level` dalį.
 
-Papildomai checkeris rodys:
+Trumpas pseudokodo planas:
 
-- progresą pagal etapus;
-- bendrą rezultatą;
-- kurių kalbos elementų dar trūksta arba kuriose vietose sprendimas stringa.
+```text
+1. nuskaityk bendra informacija
+2. paruosk bendrus kintamuosius
+3. apdorok komandas viena po kitos
+4. po ciklo isvesk suvestines dalis
+5. gale uzbaik boss level skaiciavima
+```
 
-Jei formatas, logika ar skaičiavimai bus neteisingi, checkerio eilutės pradės raudonuoti ir bus aišku, kur tiksliai problema. Tikslas yra ne nurašyti formulę, o išmokti taisykles paversti teisinga programa.
+---
 
 
 
 
+
+
+
+
+- komandos pavadinimas `vardas`;
+- baziniai taškai `taskai`;
+- pergalių skaičius `pergales`;
+- bonusų skaičius `bonusai`;
+- baudų skaičius `baudos`;
+- rungčių skaičius `rungtys`;
+- diskvalifikacijos požymis `disk`, kur `0` reiškia ne diskvalifikuota, o `1` reiškia diskvalifikuota.
+
+
+### Galutiniai taškai
+
+Komandos galutiniai taškai apskaičiuojami taip:
+
+- prie bazinių taškų pridedamas pergalių skaičiaus kvadratas;
+- pridedama po 2 taškus už kiekvieną bonusą;
+- atimamos baudos.
+
+
+
+
+
+
+
+
+### Vidurkis
+
+Vidurkis yra galutinių taškų ir rungčių skaičiaus santykis.
+
+Vidurkį išvesk tiksliai dviem skaitmenimis po kablelio. Pavyzdžiui, jei gauni 17, turi būti spausdinama `17.00`, o jei gauni 29 ir trečdalį, turi būti spausdinama `29.33`.
+
+
+
+
+### Taškų kodas
+
+Kiekvienai komandai reikia rasti:
+
+- kiek pilnų dešimčių telpa jos galutiniuose taškuose;
+- kokia liekana lieka padalijus galutinius taškus iš 10.
+
+
+
+
+Input:
+3 80 8
+Aidas 70 4 1 0 3 0
+Beta 45 2 1 0 3 0
+Cyra 78 4 4 0 3 0
+
+Output:
+
+Bronzos_lyga:
+Aidas 88 29.33 Sidabras 8 8
+Beta 51 17.00 Be_medalio 5 1
+Cyra 102 34.00 Auksas 10 2
+
+Finalo_komisija:
+Finalistu_skaicius: 2
+Finalistai: Aidas Cyra
+Tiksliai_ant_ribos: 0
+Tvarkingos_komandos: 3
+
+Komandu_radaras:
+Pirma_virs_90: Cyra
+Rizikos_komandos: 0
+Bonusu_komandos: 3
+
+Boss_level:
+Silpniausia_komanda: Beta
+Treniruociu_iki_finalo: 4
+
+
+
+
+
+
+"""
+# Duomenu nuskaitymas
+
+pirma_eilute = input().split()
+
+n = int(pirma_eilute[0])
+r = int(pirma_eilute[1])
+p = int(pirma_eilute[2])
+
+finalistu_skaicius = 0
+finalistai = ""
+tvarkingos_komandos = 0
+
+
+print("Bronzos_lyga:")
+
+
+
+for i in range(n):
+    eilute = input().split()
+    vardas = eilute[0]
+    taskai = int(eilute[1])
+    pergales = int(eilute[2])
+    bonusai = int(eilute[3])
+    baudos = int(eilute[4])
+    rungtys = int(eilute[5])
+
+    if int(eilute[6]) == 0:
+        disk = False
+    else:
+        disk = True
+
+
+    galutiniai_taskai = taskai + pergales ** 2 + bonusai * 2 - baudos
+    vidurkis = galutiniai_taskai / rungtys
+    
+    desimtys = galutiniai_taskai // 10
+    liekana = galutiniai_taskai % 10
+
+
+    """
+    ### Medaliai
+        - jei komanda diskvalifikuota, ji negauna įprasto medalio ir turi būti pažymėta kaip `Diskvalifikuota`;
+        - jei komanda nėra diskvalifikuota ir surinko bent 100 taškų, ji gauna `Auksas`;
+        - jei komanda nėra diskvalifikuota ir surinko bent 80 taškų, ji gauna `Sidabras`;
+        - jei komanda nėra diskvalifikuota ir surinko bent 60 taškų, ji gauna `Bronza`;
+        - kitu atveju spausdink `Be_medalio`.
+    
+    """
+
+    if disk == True:
+        medalis = "Be_medalio"
+    elif galutiniai_taskai >= 100:
+        medalis = "Auksas"
+    elif galutiniai_taskai >= 80:
+        medalis = "Sidabras"
+    elif galutiniai_taskai >= 60:
+        medalis = "Bronza"
+    else:
+        medalis = "Be_medalio"
+
+
+    # vardas galutiniai vidurkis medalis desimtys likutis
+    print(f"{vardas} {galutiniai_taskai} {vidurkis} {medalis} {desimtys} {liekana}")
+
+
+
+    if disk == True:
+        continue
+     
+    
+
+    """
+    Į finalą patenka tik tos komandos, kurios:
+
+        - nėra diskvalifikuotos;
+        - surinko ne mažiau taškų negu finalo riba `r`.
+    
+    """
+    
+    if galutiniai_taskai >= r:
+        if finalistu_skaicius == 0:
+            finalistai = vardas
+        else:
+            finalistai = finalistai + " " + vardas
+        finalistu_skaicius += 1
+
+    if baudos <= 10:
+        tvarkingos_komandos += 1
+
+        
+    
+
+ 
+    

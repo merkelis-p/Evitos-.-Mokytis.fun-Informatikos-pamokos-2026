@@ -16,6 +16,7 @@ Atnaujinta: **2026-04-05**.
     - [Kas yra GitHub?](#kas-yra-github)
   - [2. Kam reikalingas versijavimas](#2-kam-reikalingas-versijavimas)
   - [3. Pirma dalis: ko užtenka dabar](#3-pirma-dalis-ko-užtenka-dabar)
+  - [3a. Terminalas ir navigacija](#3a-terminalas-ir-navigacija)
   - [4. 1 žingsnis: susikurkite GitHub paskyrą](#4-1-žingsnis-susikurkite-github-paskyrą)
   - [5. 2 žingsnis: įsidiekite Git](#5-2-žingsnis-įsidiekite-git)
     - [macOS](#macos)
@@ -138,6 +139,168 @@ Ypač svarbios dalys:
 - `0 žingsnis: diegiame DEV tools`
 - `1 žingsnis: susikurkite GitHub paskyrą`
 - `2 žingsnis: įsidiekite VS Code`
+
+---
+
+## 3a. Terminalas ir navigacija
+
+Prieš naudojant Git, reikia mokėti atidaryti terminalą ir eiti į teisingą aplanką. Jei to nežinai — perskaityk šitą dalį atidžiai.
+
+---
+
+### Kas yra terminalas?
+
+Terminalas — tai langas, kuriame galima vesti **tekstines komandas**. Dažnai sakoma: „paleisk terminale", „įvesk komandą terminale" arba „atidaryk terminalą".
+
+Terminalas **nėra** VS Code. Terminalas **nėra** naršyklė. Tai atskiras langas, į kurį rašai komandas ir spaudžiai `Enter`.
+
+---
+
+### Kaip atidaryti terminalą (Windows)
+
+Naudojame **PowerShell** arba **Command Prompt** (`cmd`). Paprasčiausias būdas:
+
+1. Spausk klavišus `Win` + `R` (arba dešinį pelės klavišą ant „Start" mygtuko).
+2. Įvesk `powershell` ir spausk `Enter`.
+
+Arba:
+
+1. Spausk mygtuką „Start" (apatinis kairys kampas).
+2. Įvesk `powershell` paieškos laukelyje.
+3. Spausk `Enter` arba spauski ant „Windows PowerShell".
+
+Atsidarys **mėlynas (arba juodas) langas** su tekstu. Ten galima rašyti komandas.
+
+> Jei naudoji VS Code — yra ir integruotas terminalas: meniu viršuje `Terminal → New Terminal`. Tačiau patikimiau pradžioje dirbti atskirame PowerShell lange.
+
+---
+
+### pwd — kur esu?
+
+`pwd` parodo, **kuriame aplanke šiuo metu esi**.
+
+```
+pwd
+```
+
+Pavyzdys — gautas atsakymas:
+
+```
+C:\Users\evita
+```
+
+Tai reiškia, kad dabar esi `evita` vartotojo aplanke. Prieš dirbant su Git, reikia **eiti į repozitorijos aplanką** (žiūrėk `cd` žemiau).
+
+---
+
+### ls / dir — kas yra šiame aplanke?
+
+`ls` arba `dir` parodo, **kokie failai ir aplankai yra toje vietoje, kur esi**.
+
+PowerShell:
+
+```
+ls
+```
+
+Command Prompt (cmd):
+
+```
+dir
+```
+
+Tai naudinga, kai nori patikrinti — ar tikrai esi ten, kur manai, ir ar yra reikiami failai.
+
+---
+
+### cd — eiti į aplanką
+
+`cd` (change directory) keičia, **kuriame aplanke esi**.
+
+```
+cd PavadinImas
+```
+
+Pavyzdys — eiti į aplanką `20260409-20260416-pamoka`:
+
+```
+cd 20260409-20260416-pamoka
+```
+
+Po to `pwd` parodys:
+
+```
+C:\Users\evita\Evitos-.-Mokytis.fun-Informatikos-pamokos-2026\20260409-20260416-pamoka
+```
+
+---
+
+### cd .. — grįžti atgal vienu lygiu
+
+`cd ..` grįžta **vienu lygiu aukščiau** — tai yra į aplanką, kuriame yra dabartinis aplankas.
+
+```
+cd ..
+```
+
+Pavyzdys:
+
+```
+cd 20260409-20260416-pamoka   # eini į pamokos aplanką
+cd ..                          # grįžti atgal į repozitorijos šaknį
+```
+
+---
+
+### Praktinis pavyzdys: kaip eiti į repozitorijos aplanką
+
+Kai atidarai **naują terminalą**, dažniausiai esi `C:\Users\evita\` arba panašioje vietoje.
+
+Reikia eiti į repozitorijos aplanką. Tai daroma su pilnu keliu:
+
+```
+cd C:\Users\evita\Evitos-.-Mokytis.fun-Informatikos-pamokos-2026
+```
+
+Patikrinimui:
+
+```
+pwd
+```
+
+Turėtų parodyti:
+
+```
+C:\Users\evita\Evitos-.-Mokytis.fun-Informatikos-pamokos-2026
+```
+
+Ir:
+
+```
+ls
+```
+
+Turėtų parodyti aplankus kaip `20260409-20260416-pamoka`, `20260402-pamoka`, `docs`, `README.md` ir t.t.
+
+**Tik tada** galima naudoti `git pull`, `git add`, `git commit`, `git push`.
+
+---
+
+### Dažna klaida: git komandos rašomos ne ten
+
+Jei matai klaidas kaip:
+
+```
+fatal: not a git repository
+```
+
+Tai reiškia, kad esi **ne tame aplanke**. Reikia grįžti į repozitorijos aplanką:
+
+```
+cd C:\Users\evita\Evitos-.-Mokytis.fun-Informatikos-pamokos-2026
+```
+
+Ir bandyti iš naujo.
 
 ---
 
@@ -747,6 +910,7 @@ Kai šita dalis taps natūrali, tada bus labai lengva mokytis:
 - pull requestų;
 - merge conflict sprendimo;
 - normalesnio komandinio darbo.
+
 
 
 

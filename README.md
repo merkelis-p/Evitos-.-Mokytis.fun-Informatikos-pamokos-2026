@@ -1,7 +1,7 @@
 # Evitos programavimo pamokos
 
 Šioje repozitorijoje saugomi programavimo pamokų failai, užduotys ir pagalbinė medžiaga.
-Kalba: **Python**. Atnaujinta: **2026-04-10**.
+Kalba: **Python**. Atnaujinta: **2026-04-20**.
 
 ---
 
@@ -10,15 +10,15 @@ Kalba: **Python**. Atnaujinta: **2026-04-10**.
 - [Evitos programavimo pamokos](#evitos-programavimo-pamokos)
   - [Turinys](#turinys)
   - [Aktualu Dabar](#aktualu-dabar)
-  - [Svarbios Nuorodos](#svarbios-nuorodos)
   - [Namų Darbai](#namų-darbai)
-    - [0. git pull — pirmiausia](#0-git-pull--pirmiausia)
-    - [1. Pabaik failų kėlimą į GitHub](#1-pabaik-failų-kėlimą-į-github)
-    - [2. nd4.py — iš 20260402-pamoka](#2-nd4py--iš-20260402-pamoka)
-    - [3. u1.py–u4.py — iš 20260409-pamoka](#3-u1pyu4py--iš-20260409-pamoka)
-    - [4. nd1.py — iš 20260409-pamoka (pagrindinis fokusas)](#4-nd1py--iš-20260409-pamoka-pagrindinis-fokusas)
-    - [5. Įkelk į GitHub](#5-įkelk-į-github)
-  - [20260409 Pamokos Failai](#20260409-pamokos-failai)
+    - [0. Pirmiausia — perskaityk atnaujintą Git gidą](#0-pirmiausia--perskaityk-atnaujintą-git-gidą)
+    - [1. Sukelk visus praeitus namų darbus į GitHub](#1-sukelk-visus-praeitus-namų-darbus-į-github)
+    - [2. Pabaik nd1.py — ten kur pabaigėme](#2-pabaik-nd1py--ten-kur-pabaigėme)
+    - [2. Perskaityti naują teoriją — sąrašai](#2-perskaityti-naują-teoriją--sąrašai)
+    - [3. Įkelk viską į GitHub](#3-įkelk-viską-į-github)
+  - [Svarbios Nuorodos](#svarbios-nuorodos)
+  - [20260409-20260416 Pamokos Failai](#20260409-20260416-pamokos-failai)
+  - [20260423 Pamokos Failai](#20260423-pamokos-failai)
   - [20260402 Pamokos Failai](#20260402-pamokos-failai)
   - [Senesnė Medžiaga](#senesnė-medžiaga)
 
@@ -26,19 +26,76 @@ Kalba: **Python**. Atnaujinta: **2026-04-10**.
 
 ## Aktualu Dabar
 
-Dabartinis pagrindinis aplankas yra [20260409-pamoka](20260409-pamoka/).
+Dabartinis pagrindinis aplankas yra [20260409-20260416-pamoka](20260409-20260416-pamoka/).
 
-Šitos pamokos tema yra `while` ciklas, `break`, `continue` ir ilgesnis `for` ciklo uždavinys su keliomis sąlygomis vienu metu.
+Per pamoką kartu pradėjome spręsti `nd1.py` — „Robotų Arena". Baigti reikia namuose.
 
-Per pamoką kartu atlikome:
+Kita pamoka (20260423) bus skirta **sąrašams** (`list`). Ta pamokos medžiaga jau yra [20260423-pamoka/PAMOKA.md](20260423-pamoka/PAMOKA.md).
 
-- `nd1.py`, `nd2.py`, `nd3.py` iš [20260402-pamoka](20260402-pamoka/).
+---
 
-Namų darbams liko:
+## Namų Darbai
 
-1. `nd4.py` iš [20260402-pamoka](20260402-pamoka/)
-2. `u1.py`–`u4.py` iš [20260409-pamoka](20260409-pamoka/)
-3. `nd1.py` iš [20260409-pamoka](20260409-pamoka/) — pagrindinis fokusas
+### 0. Pirmiausia — perskaityk atnaujintą Git gidą
+
+Git gidas buvo papildytas — dabar yra skyrius **„Terminalas ir navigacija"**, kuriame aiškiai paaiškinta:
+
+- kaip atidaryti PowerShell;
+- kas yra `pwd`, `ls`, `cd`, `cd ..`;
+- kaip eiti iki repozitorijos aplanko.
+
+Perskaityk čia: [docs/GIT_GITHUB_PRADEDANCIOJO_GIDAS.md](docs/GIT_GITHUB_PRADEDANCIOJO_GIDAS.md)
+
+### 1. Sukelk visus praeitus namų darbus į GitHub
+
+Kaip tai padaryti:
+
+Atidaryti **PowerShell**, eiti į repozitorijos aplanką:
+
+```
+cd C:\Users\evita\Evitos-.-Mokytis.fun-Informatikos-pamokos-2026
+```
+
+Tada:
+
+```
+git status
+git add .
+git commit -m "Praeitu pamoku namu darbai"
+git push
+```
+
+Jei `git push` neveikia arba prašo slaptažodžio — žiūrėk gido skyrių apie SSH arba kreipkis pagalbos.
+
+### 2. Pabaik nd1.py — ten kur pabaigėme
+
+Failas: [20260409-20260416-pamoka/nd1.py](20260409-20260416-pamoka/nd1.py)
+
+Tęsk nuo tos vietos, kur baigėme per pamoką. Užduotis: [20260409-20260416-pamoka/ND_UZDUOTIS.md](20260409-20260416-pamoka/ND_UZDUOTIS.md). Teorija: [20260409-20260416-pamoka/TEORIJA.md](20260409-20260416-pamoka/TEORIJA.md).
+
+```
+cd 20260409-20260416-pamoka
+python3 checker.py -d nd1.py
+python3 checker.py nd1.py
+```
+
+### 2. Perskaityti naują teoriją — sąrašai
+
+Prieš kitą pamoką perskaityk: [20260423-pamoka/PAMOKA.md](20260423-pamoka/PAMOKA.md)
+
+Ten yra visa teorija apie `list` — kas tai yra, kaip naudoti, taip pat yra ir 4 uždaviniai, bet su jais dirbsime per pamoką, todėl dabar juos spręsti nėra būtina.
+
+### 3. Įkelk viską į GitHub
+
+Kai baigsi nd1.py, įkelk į GitHub:
+
+```
+git add .
+git commit -m "Namu darbai 20260409-20260416"
+git push
+```
+
+Patikslinau dabar Git gidą, paaiškinantį, kur ir kada naudoti Git komandas: [docs/GIT_GITHUB_PRADEDANCIOJO_GIDAS.md](docs/GIT_GITHUB_PRADEDANCIOJO_GIDAS.md)
 
 ---
 
@@ -46,120 +103,40 @@ Namų darbams liko:
 
 | Kas | Kur |
 |---|---|
+| Git ir GitHub gidas (pradedantiems) | [docs/GIT_GITHUB_PRADEDANCIOJO_GIDAS.md](docs/GIT_GITHUB_PRADEDANCIOJO_GIDAS.md) |
 | VS Code + Python paruošimas | [docs/VS_CODE_SETUP_GUIDE.md](docs/VS_CODE_SETUP_GUIDE.md) |
-| Git + GitHub pradžios gidas | [docs/GIT_GITHUB_PRADEDANCIOJO_GIDAS.md](docs/GIT_GITHUB_PRADEDANCIOJO_GIDAS.md) |
-| Šios pamokos užduotis (ilga) | [20260409-pamoka/ND_UZDUOTIS.md](20260409-pamoka/ND_UZDUOTIS.md) |
-| Šios pamokos teorija | [20260409-pamoka/TEORIJA.md](20260409-pamoka/TEORIJA.md) |
-| Šios pamokos tikrintuvas | [20260409-pamoka/checker.py](20260409-pamoka/checker.py) |
-| Pamokos pratybų užduotys | [20260409-pamoka/U_UZDUOTYS.md](20260409-pamoka/U_UZDUOTYS.md) |
-| Pamokos pratybų atsakymai | [20260409-pamoka/U_ATSAKYMAI.md](20260409-pamoka/U_ATSAKYMAI.md) |
-| Pratybų tikrintuvas | [20260409-pamoka/u_checker.py](20260409-pamoka/u_checker.py) |
-| Praėjusios pamokos užduotys | [20260402-pamoka/ND_UZDUOTIS.md](20260402-pamoka/ND_UZDUOTIS.md) |
-| Praėjusios pamokos tikrintuvas | [20260402-pamoka/checker.py](20260402-pamoka/checker.py) |
+| Dabartinės pamokos užduotis | [20260409-20260416-pamoka/ND_UZDUOTIS.md](20260409-20260416-pamoka/ND_UZDUOTIS.md) |
+| Dabartinės pamokos teorija | [20260409-20260416-pamoka/TEORIJA.md](20260409-20260416-pamoka/TEORIJA.md) |
+| Dabartinės pamokos tikrintuvas | [20260409-20260416-pamoka/checker.py](20260409-20260416-pamoka/checker.py) |
+| Kitos pamokos medžiaga (sąrašai) | [20260423-pamoka/PAMOKA.md](20260423-pamoka/PAMOKA.md) |
 
 ---
 
-## Namų Darbai
+## 20260409-20260416 Pamokos Failai
 
-### 0. git pull — pirmiausia
-
-Prieš pradėdama, gauk naujausius failus:
-
-```
-cd C:\Users\evita\Evitos-.-Mokytis.fun-Informatikos-pamokos-2026
-git pull
-```
-
-### 1. Pabaik failų kėlimą į GitHub
-
-Jei dar neįkėlei ankstesnių darbų:
-
-```
-git status
-git add .
-git commit -m "Ikelti ankstesni namu darbai"
-git push
-```
-
-### 2. nd4.py — iš 20260402-pamoka
-
-Failas: [20260402-pamoka/nd4.py](20260402-pamoka/nd4.py)
-
-Užduotis: [20260402-pamoka/ND_UZDUOTIS.md](20260402-pamoka/ND_UZDUOTIS.md) (skyrius ND4).
-Teorija: [20260402-pamoka/TEORIJA.md](20260402-pamoka/TEORIJA.md) (skyriai 8 ir 9).
-
-```
-cd 20260402-pamoka
-python3 checker.py -d nd4.py
-python3 checker.py nd4.py
-```
-
-### 3. u1.py–u4.py — iš 20260409-pamoka
-
-Šiose užduotyse naudojamos dvi naujos komandos, kurių per pamoką nespėjome aptarti:
-
-- **`break`** — iš karto išeina iš ciklo, net jei ciklas dar nesibaigė. Naudinga kai randi ko ieškojai ir toliau tikrinti nebereikia.
-- **`continue`** — praleidžia likusią ciklo iteraciją ir šoka į kitą. Naudinga kai nori praleisti tam tikras reikšmes, bet tęsti ciklą toliau.
-
-```python
-for i in range(10):
-    if i == 3:
-        break      # sustoja ties 3, toliau nevykdo
-    print(i)       # spausdina 0, 1, 2
-
-for i in range(5):
-    if i == 2:
-        continue   # kai i==2, praleidi print ir eini toliau
-    print(i)       # spausdina 0, 1, 3, 4
-```
-
-Užduotys: [20260409-pamoka/U_UZDUOTYS.md](20260409-pamoka/U_UZDUOTYS.md)
-
-Stenkis išspręsti pati. Atsakymai: [20260409-pamoka/U_ATSAKYMAI.md](20260409-pamoka/U_ATSAKYMAI.md)
-
-```
-cd 20260409-pamoka
-python3 u_checker.py -d u1.py
-python3 u_checker.py u1.py
-python3 u_checker.py
-```
-
-### 4. nd1.py — iš 20260409-pamoka (pagrindinis fokusas)
-
-Failas: [20260409-pamoka/nd1.py](20260409-pamoka/nd1.py)
-
-1. Perskaityk užduotį: [20260409-pamoka/ND_UZDUOTIS.md](20260409-pamoka/ND_UZDUOTIS.md)
-2. Įsigilnk į teoriją: [20260409-pamoka/TEORIJA.md](20260409-pamoka/TEORIJA.md)
-3. Spręsk pati — stenkis nekopijuoti kodo iš teorijos.
-
-```
-cd 20260409-pamoka
-python3 checker.py -d nd1.py
-python3 checker.py nd1.py
-```
-
-### 5. Įkelk į GitHub
-
-```
-git add .
-git commit -m "Namu darbai 20260409"
-git push
-```
-
----
-
-## 20260409 Pamokos Failai
+Dvi pamokos skirtos tai pačiai temai: `while`, `break`, `continue` ir ilgesnė užduotis.
 
 | Failas | Kam skirtas |
 |---|---|
-| [20260409-pamoka/ND_UZDUOTIS.md](20260409-pamoka/ND_UZDUOTIS.md) | Ilga užduotis „Robotų Arena" |
-| [20260409-pamoka/TEORIJA.md](20260409-pamoka/TEORIJA.md) | `while`, `break`, `continue`, duomenų nuskaitymas |
-| [20260409-pamoka/nd1.py](20260409-pamoka/nd1.py) | Pagrindinis uždavinys |
-| [20260409-pamoka/checker.py](20260409-pamoka/checker.py) | Tikrintuvas nd1.py |
-| [20260409-pamoka/U_UZDUOTYS.md](20260409-pamoka/U_UZDUOTYS.md) | 4 pratybų užduotys |
-| [20260409-pamoka/U_ATSAKYMAI.md](20260409-pamoka/U_ATSAKYMAI.md) | Atsakymai su paaiškinimais |
-| [20260409-pamoka/u1.py](20260409-pamoka/u1.py)–[u4.py](20260409-pamoka/u4.py) | Pratybų failai |
-| [20260409-pamoka/u_checker.py](20260409-pamoka/u_checker.py) | Tikrintuvas u1–u4 |
+| [20260409-20260416-pamoka/ND_UZDUOTIS.md](20260409-20260416-pamoka/ND_UZDUOTIS.md) | Ilga užduotis „Robotų Arena" |
+| [20260409-20260416-pamoka/TEORIJA.md](20260409-20260416-pamoka/TEORIJA.md) | `while`, `break`, `continue`, duomenų nuskaitymas |
+| [20260409-20260416-pamoka/nd1.py](20260409-20260416-pamoka/nd1.py) | Pagrindinis uždavinys — tęsti namuose |
+| [20260409-20260416-pamoka/checker.py](20260409-20260416-pamoka/checker.py) | Tikrintuvas nd1.py |
+| [20260409-20260416-pamoka/U_UZDUOTYS.md](20260409-20260416-pamoka/U_UZDUOTYS.md) | 4 pratybų užduotys |
+| [20260409-20260416-pamoka/U_ATSAKYMAI.md](20260409-20260416-pamoka/U_ATSAKYMAI.md) | Atsakymai su paaiškinimais |
+| [20260409-20260416-pamoka/u1.py](20260409-20260416-pamoka/u1.py)–[u4.py](20260409-20260416-pamoka/u4.py) | Pratybų failai |
+| [20260409-20260416-pamoka/u_checker.py](20260409-20260416-pamoka/u_checker.py) | Tikrintuvas u1–u4 |
+
+---
+
+## 20260423 Pamokos Failai
+
+Kitos pamokos tema — `list` (sąrašai).
+
+| Failas | Kam skirtas |
+|---|---|
+| [20260423-pamoka/PAMOKA.md](20260423-pamoka/PAMOKA.md) | Teorija ir 4 uždaviniai apie sąrašus |
+| [20260423-pamoka/u1.py](20260423-pamoka/u1.py)–[u4.py](20260423-pamoka/u4.py) | Uždavinių failai |
 
 ---
 
@@ -180,5 +157,6 @@ git push
 - [docs/20260326-pamoka.md](docs/20260326-pamoka.md) — 2026-03-26 pamokos namų darbai
 - [docs/VS_CODE_SETUP_GUIDE.md](docs/VS_CODE_SETUP_GUIDE.md) — VS Code diegimas
 - [docs/GIT_GITHUB_PRADEDANCIOJO_GIDAS.md](docs/GIT_GITHUB_PRADEDANCIOJO_GIDAS.md) — Git/GitHub gidas
+
 
 
