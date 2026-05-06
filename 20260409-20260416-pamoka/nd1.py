@@ -419,6 +419,32 @@ for i in range(n):
     
     """
     
+        pirma_virs_90 = "NERA"
+        rizikos_komandos = 0
+        bonusu_komandos = 0
+        silpniausia_komanda = "NERA"
+        silpniausi_taskai = -1
+
+    if galutiniai_taskai > 90 and pirma_virs_90 == "NERA":
+        pirma_virs_90 = vardas
+
+    if galutiniai_taskai < 50 or baudos > 20:
+        rizikos_komandos += 1
+
+    if bonusai > 0:
+        bonusu_komandos += 1
+
+    if galutiniai_taskai == r:
+        tiksliai_ant_ribos += 1
+
+    if disk == False:
+        if silpniausia_komanda == "NERA" or galutiniai_taskai < silpniausi_taskai:
+            silpniausi_taskai = galutiniai_taskai
+            silpniausia_komanda = vardas
+
+    if disk == True:
+        continue
+
     if galutiniai_taskai >= r:
         if finalistu_skaicius == 0:
             finalistai = vardas
@@ -429,8 +455,39 @@ for i in range(n):
     if baudos <= 10:
         tvarkingos_komandos += 1
 
-        
-    
+print()
+print("Finalo_komisija:")
+print(f"Finalistu_skaicius: {finalistu_skaicius}")
+
+if finalistu_skaicius == 0:
+    print("Finalistai: NERA")
+else:
+    print(f"Finalistai: {finalistai}")
+
+print(f"Tiksliai_ant_ribos: {tiksliai_ant_ribos}")
+print(f"Tvarkingos_komandos: {tvarkingos_komandos}")
+
+print()
+print("Komandu_radaras:")
+print(f"Pirma_virs_90: {pirma_virs_90}")
+print(f"Rizikos_komandos: {rizikos_komandos}")
+print(f"Bonusu_komandos: {bonusu_komandos}")
+
+print()
+print("Boss_level:")
+print(f"Silpniausia_komanda: {silpniausia_komanda}")
+
+if silpniausia_komanda == "NERA":
+    print("Treniruociu_iki_finalo: 0")
+else:
+    treniruotes = 0
+    taskai_dabar = silpniausi_taskai
+
+    while taskai_dabar < r:
+        taskai_dabar += p
+        treniruotes += 1
+
+    print(f"Treniruociu_iki_finalo: {treniruotes}")
 
  
     
